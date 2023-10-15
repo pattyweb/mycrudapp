@@ -3,7 +3,7 @@ function confirmDelete(itemId) {
         // If confirmed, submit the form to perform the deletion
         var deleteForm = document.createElement("form");
         deleteForm.method = "post";
-        deleteForm.action = "index.php"; // Replace with the actual URL of your delete action
+        deleteForm.action = "/mycrudapp/views/updateForm.php"; // Replace with the actual URL of your delete action
         var idInput = document.createElement("input");
         idInput.type = "hidden";
         idInput.name = "id";

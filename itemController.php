@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $itemModel1->createItem($name, $description);
             
             // Redirect after creating
-            header("Location: index.php");
+            header("Location: /mycrudapp");
             exit();
         } else {
             // Handle the case when "name" and "description" are missing in $_POST
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $itemModel1->updateItem($id, $name, $description);
             
             // Redirect after updating
-            header("Location: index.php");
+            header("Location: /mycrudapp");
             exit();
         } else {
             // Handle the case when "id," "name," and "description" are missing in $_POST
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $itemModel1->deleteItem($id);
             
             // Redirect after deleting
-            header("Location: index.php");
+            header("Location: /mycrudapp");
             exit();
         } else {
             // Handle the case when "id" is missing in $_POST
