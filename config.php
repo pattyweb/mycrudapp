@@ -1,12 +1,25 @@
 <?php
-$host = "localhost";
-$username = "your_username";
-$password = "your_password";
-$database = "your_database";
+class Database {
+    private $host = "localhost";
+    private $username = "your_username";
+    private $password = "your_password";
+    private $database = "your_database";
+    private $connection;
 
-$connection = new mysqli($host, $username, $password, $database);
+    public function __construct() {
+        $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
 
-if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
+        if ($this->connection->connect_error) {
+            die("Connection failed: " . $this->connection->connect_error);
+        }
+    }
+
+    public function getConnection() {
+        return $this->connection;
+    }
 }
+
+$database = new Database();
+$connection = $database->getConnection();
+
 ?>

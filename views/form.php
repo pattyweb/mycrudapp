@@ -1,11 +1,18 @@
 <?php
+require_once __DIR__ . '/../vendor/autoload.php'; // Move up one directory to reach the root directory
+
+// The rest of your HTML code remains the same.
+
 // Include the router
-include_once "../router.php";
+//include_once "../router.php";
 
 // You don't need the controller instantiation here as it's handled in the router
 
-// This part is now handled by the router
-// $items = $itemModel1->getItems(); // Assuming you have an itemController object
+$database = new Database();
+$connection = $database->getConnection();
+
+$itemModel1 = new ItemModel($connection);
+$items = $itemModel1->getItems(); // Assuming you have an itemController object
 ?>
 
 <!DOCTYPE html>

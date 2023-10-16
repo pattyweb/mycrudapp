@@ -1,11 +1,15 @@
 <?php
-include_once "config.php";
-include_once "itemModel.php";
+require_once __DIR__ . '/vendor/autoload.php';
+
+//include_once "config.php";
+//include_once "itemModel.php";
+$database = new Database();
+$connection = $database->getConnection();
 
 $itemModel1 = new ItemModel($connection);
 
 // Retrieve the list of items
-$items = $itemModel1->getItems();
+//$items = $itemModel1->getItems();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["create"])) {

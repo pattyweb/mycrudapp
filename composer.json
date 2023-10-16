@@ -1,0 +1,27 @@
+{
+    "name": "pattyweb/mycrudapp",
+    "description": "simple mvc crud",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "": "src/",
+            "views\\": "views/"
+        },
+        "files":[
+            "config.php",
+            "itemController.php",
+            "router.php"
+
+        ]
+    },
+    "authors": [
+        {
+            "name": "pattyxica24",
+            "email": "pattyxica24@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.2"
+    }
+}
