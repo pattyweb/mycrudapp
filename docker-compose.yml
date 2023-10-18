@@ -1,0 +1,35 @@
+version: '3'
+services:
+  db: 
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=mycrudapp
+      - MYSQL_USER=mycrudapp
+      - MYSQL_PASSWORD=mycrudapp # this should live in a env var
+      - MYSQL_ALLOW_EMPTY_PASSWORD=0 
+    volumes:
+      - "./db:/docker-entrypoint-initdb.d" # this is how we persist a sql db even when container stops
+  www:
+    container_name: mycrudapp
+    build:
+      context: .  # Use the current directory
+      dockerfile: Dockerfile  # Specify the custom Dockerfile
+    image: php:8.2-apache
+    volumes:
+      - "./:/var/www/html" # sync the current dir on local machine to the dir of container
+      - "./php.ini:/usr/local/etc/php/conf.d/php.ini"  # Mount the php.ini file
+    ports:
+      - 80:80
+      - 443:443 # for future ssl traffic
+    environment:
+      - DB_HOST=db  # Set the host to the host of your MySQL service
+      - DB_USER=mycrudapp  # Set the host to the user of your MySQL service
+      - DB_PASSWORD=mycrudapp  # Set the host to the password of your MySQL service
+      - DB_NAME=mycrudapp  # Set the host to the name of your MySQL service
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8001:80
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306

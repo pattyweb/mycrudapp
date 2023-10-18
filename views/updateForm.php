@@ -40,7 +40,7 @@ if (isset($_GET["id"])) {
                             </div>
                             <button type="submit" name="update" class="btn btn-primary">Update</button>
                         </form>
-                        <a href="/mycrudapp">Go back to the homepage</a>
+                        <a href="/">Go back to the homepage</a>
                     </div>
                 </div>
             </div>

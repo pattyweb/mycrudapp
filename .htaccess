@@ -1,5 +1,5 @@
 # Alternate default index page
-DirectoryIndex views/form.php
+ DirectoryIndex views/form.php
 
 # Enable mod_rewrite
 RewriteEngine On

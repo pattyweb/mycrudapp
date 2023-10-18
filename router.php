@@ -12,7 +12,7 @@ $itemController = new ItemModel($connection);
 
 function route($path, $itemController) {
     //$items = $itemController->getItems(); // Retrieve the list of items
-    if ($path === '/' || $path === '/form') {
+    if ($path === '/form' || $path === '/form') {
         // Display the form
         include "views/form.php";
     } elseif (preg_match('/^\/update-form\/\d+$/', $path)) {
